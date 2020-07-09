@@ -37,7 +37,7 @@ var twoSum = function (nums, target) {
     const curNum = nums[i];
     const targetNum = target - curNum;
     const targetIndex = hashMap[targetNum];
-    if (targetIndex) {
+    if (targetIndex !== undefined) {
       return [targetIndex, i];
     }
     hashMap[curNum] = i;
