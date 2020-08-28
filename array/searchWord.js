@@ -35,5 +35,24 @@ board 和 word 中只包含大写和小写英文字母。
  * @return {boolean}
  */
 var exist = function(board, word) {
-    
+  let x = board[0].length;
+  let y = board.length;
+  let search = false;
+  for(let i=0; i< x; i++){
+    for(let j=0; j< y; j++){
+      search = backtrack(i,j,word)
+    }
+  }
+  const backtrack=(i,j,word)=> {
+    if(backtrack[i][j] !== word[0]){
+      return
+    }
+    backtrack(i+1, j ,word);
+    backtrack(i-1, j ,word);
+    backtrack(i, j+1 ,word);
+    backtrack(i, j-1 ,word);
+
+  }
+
+  return search;
 };
